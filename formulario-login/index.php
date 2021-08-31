@@ -10,6 +10,7 @@
 <body>
     <div>
         <h1>Formulario</h1>
+        <h2></h2>
     </div>
     
 </body>
