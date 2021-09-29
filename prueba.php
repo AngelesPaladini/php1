@@ -7,4 +7,6 @@ for($i = 0; $i < count($aProductos); $i++){
     echo "<tr><td>" . $aProductos[$i]. "</td></tr>";
 }
 echo "</table>";
+echo "La TV es de 40\" pulgadas"
+
 ?>
