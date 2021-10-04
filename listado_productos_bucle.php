@@ -25,10 +25,11 @@ $aProductos[] = array(
     "stock" => 5,
     "precio" => 45000,
 );
-
+$suma = 0;
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,6 +37,7 @@ $aProductos[] = array(
     <title>Listado de productos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
+
 <body>
     <main class="container">
         <div class="row">
@@ -54,34 +56,32 @@ $aProductos[] = array(
                         <th>Precio</th>
                         <th>Accion</th>
                     </tr>
-                    <?php
-                    for($i = 0; $i < count($aProductos); $i++){
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < count($aProductos); $i++) {
 
-                        echo "<td>" . $aProductos[$i]["nombre"] . "</td>";
-                        echo "<td>" . $aProductos[$i]["marca"] . "</td>";
-                        echo "<td>" . $aProductos[$i]["modelo"] . "</td>";
-                        echo "<td>" . ($aProductos[$i]["stock"] == 0? "Sin stock" : ($aProductos[$i]["stock"] > 10? "Hay Stock" : "Poco stock")) . "</td>";
-                        echo "<td> $" . $aProductos[$i]["precio"] . "</td>";
-                        echo "<td><button class='btn btn-primary'>Comprar</button></td>";
-                        echo "</tr>";
-                    }
-                    ?>
+                            echo "<td>" . $aProductos[$i]["nombre"] . "</td>";
+                            echo "<td>" . $aProductos[$i]["marca"] . "</td>";
+                            echo "<td>" . $aProductos[$i]["modelo"] . "</td>";
+                            echo "<td>" . ($aProductos[$i]["stock"] == 0 ? "Sin stock" : ($aProductos[$i]["stock"] > 10 ? "Hay Stock" : "Poco stock")) . "</td>";
+                            echo "<td> $" . $aProductos[$i]["precio"] . "</td>";
+                            echo "<td><button class='btn btn-primary'>Comprar</button></td>";
+                            echo "</tr>";
+                            $suma+=$aProductos[$i]["precio"];
+                            //$suma=$suma + el array//
+                        }
+                        ?>
+                    </tr>
+                    <th><h1> <?php echo "El subtotal es: $" . $suma; ?> </h1></th>
+                    <tr>
+
+                    </tr>
                 </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 py-5">
-                <h2>El Subtotal es:
-                    <?php
-                    for ($i = 0; $i < count($aProductos){
-
-                    }
-                    ?>
-                </h2>
-            </div>
-        </div>
     </main>
-    
-    
+
+
 </body>
+
 </html>
